@@ -1,0 +1,14 @@
+# 1️⃣ Base image (Java environment)
+FROM eclipse-temurin:17-jdk-jammy
+
+# 2️⃣ Set working directory inside container, All commands run inside /app
+WORKDIR /app
+
+# 3️⃣ Copy jar file into container
+COPY target/*.jar app.jar
+
+# 4️⃣ Expose application port, App listens on port 8080
+EXPOSE 8085
+
+# 5️⃣ Command to run the app
+ENTRYPOINT ["java", "-jar", "app.jar"]
